@@ -9,6 +9,7 @@ verify_ssl = true
 django = "*"
 django-notifications-hq = "*"
 celery = {extras = ["redis"],version = "*"}
+gevent = "*"
 
 [requires]
 python_version = "3.6"

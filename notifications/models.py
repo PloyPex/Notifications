@@ -315,15 +315,13 @@ def notify_handler(verb, **kwargs):
 # connect the signal
 notify.connect(notify_handler, dispatch_uid='notifications.models.notification')
 
-# signal sends emails
+# send email in this signal
 @receiver(post_save, sender=Notification)
 def send_email_notification(sender, instance, created, *args, **kwargs):
     if created:
-        print('\n\nEMAIL\n\n', instance.recipient.email, '\n\n')
-        print(instance.recipient)
         email = EmailMessage(
             instance.verb,
-            f'{instance.description} happened {instance.timesince()} ago',
+            f'{instance.description} happened {instance.timesince} ago',  # render_to_string
             'New Notification <notifications@example.com>',
             [instance.recipient.email],
             reply_to=['Support <support@example.com']

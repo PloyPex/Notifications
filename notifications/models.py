@@ -321,7 +321,7 @@ notify.connect(notify_handler, dispatch_uid='notifications.models.notification')
 def send_email_notification(sender, instance, created, *args, **kwargs):
     if created:
         if settings.NOTIFICATIONS_USE_CELERY:
-            send_notification_email.apply_async((instance.verb, instance.description, instance.timesince,
+            send_notification_email.apply_async((instance.verb, instance.description, instance.timesince(),
                 instance.recipient.email), queue='notifications')
         else:
             email = EmailMessage(

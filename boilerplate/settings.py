@@ -135,3 +135,10 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 DJANGO_NOTIFICATIONS_CONFIG = {
     'USE_JSONFIELD': True
 }
+
+
+# email settings
+
+EMAIL_FILE_PATH = 'temp/emails/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'

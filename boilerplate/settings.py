@@ -144,3 +144,16 @@ NOTIFICATIONS_USE_CELERY = True
 EMAIL_FILE_PATH = 'temp/emails/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+
+
+# celery
+
+CELERY_TASK_ANNOTATIONS = {'tasks.add': {'rate_limit': '10/s'}}
+
+CELERY_REDIS_HOST = 'localhost'
+
+CELERY_REDIS_PORT = 6379
+
+CELERY_BROKER_URL = 'redis://localhost:6379/1'
+
+CELERY_RESULT_BACKEND = 'redis'

@@ -130,11 +130,13 @@ STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
-# django-notifications-hq
+# django-notifications-hq = notifications app
 
 DJANGO_NOTIFICATIONS_CONFIG = {
     'USE_JSONFIELD': True
 }
+
+NOTIFICATIONS_USE_CELERY = True
 
 
 # email settings

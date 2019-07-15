@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_celery_results',
+
     # package
     'notifications',
 
@@ -156,4 +158,8 @@ CELERY_REDIS_PORT = 6379
 
 CELERY_BROKER_URL = 'redis://localhost:6379/1'
 
-CELERY_RESULT_BACKEND = 'redis'
+# CELERY_RESULT_BACKEND = 'redis://localhost:6379/1'
+
+CELERY_RESULT_BACKEND = 'django-db'
+
+CELERY_CACHE_BACKEND = 'django-cache'

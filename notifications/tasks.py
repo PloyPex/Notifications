@@ -13,4 +13,5 @@ def send_notification_email(verb, description, timesince, email):
         reply_to=['Support <support@example.com']
     )
     # email.content_subtype = 'html'
-    email.send()
+    res = email.send()
+    return res

@@ -1,0 +1,8 @@
+{% load notifications_tags static %}
+
+<script src="{% static 'notifications/notify.js' %}" type="text/javascript"></script>
+{% register_notify_callbacks callbacks='fill_notification_list,fill_notification_badge' refresh_period=20 %}
+
+{% live_notify_badge %}
+
+{% live_notify_list %}

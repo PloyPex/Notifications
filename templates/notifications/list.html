@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load notifications_tags %}
+
+{% block title %}
+	Notifications    
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row mt-5 pt-2">
+		<div class="col-md-6">
+		  {% for notice in notifications %}
+		  	{% include "notifications/notice.html" %}
+		  {% endfor %}
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}  
+	<script type="text/javascript">
+		$(function() {
+			$('.toast').toast('show')
+		})
+	</script>
+{% endblock scripts %}

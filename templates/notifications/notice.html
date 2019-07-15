@@ -1,0 +1,22 @@
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+  <div class="toast-header">
+    <i class="icon-mail{% if notice.unread %}-alt{% endif %}"></i>
+    <strong class="mr-auto">{{ notice.verb }}</strong>
+    <strong>
+	    {% if notice.target %}
+	      of {{ notice.target }}
+	    {% endif %}
+    </strong>
+    <small class="text-muted">{{ notice.timesince }} ago</small>
+    <a type="button" href="{% url 'notifications:mark_as_read' notice.slug %}" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </a>
+  </div>
+  <div class="toast-body">
+    {{ notice.description|linebreaksbr }}
+    <br>
+    {% for action in notice.data.actions %}
+      <a class="btn" href="{{ action.href }}">{{ action.title }}</a>
+    {% endfor %}
+  </div>
+</div>

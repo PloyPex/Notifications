@@ -10,6 +10,7 @@ django = "*"
 django-notifications-hq = "*"
 celery = {extras = ["redis"],version = "*"}
 gevent = "*"
+django-celery-results = "*"
 
 [requires]
 python_version = "3.6"
